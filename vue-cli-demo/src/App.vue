@@ -2,24 +2,27 @@
   <div id="app">
     <h3 id="title">{{$store.state.title}}</h3>
     <div id="main">
-      <component :is="componentMap[currentComponent].componentObj"></component>
+      <component :is="componentMap[currentComponent] ? componentMap[currentComponent].componentObj : ''"></component>
     </div>
 
     <button id="coms_btn" @click="showComs = !showComs">组件列表</button>
-    <div id="coms" v-show="showComs">
-      <h3>views组件列表</h3>
-      <input type="text" v-model="filterText" id="com-search">
-      <ul>
-        <li v-for="com in Object.keys(filteredComponentMap)" :key="com.id" @click="changeCurrentComponent(com)">
-          {{componentMap[com].name ? componentMap[com].name : com}}
-        </li>
-      </ul>
-    </div>
+
+    <transition name="bounce">
+      <div id="coms" v-show="showComs">
+        <h3>views组件列表</h3>
+        <input type="text" v-model="filterText" id="com-search" />
+        <ul>
+          <li v-for="com in Object.keys(filteredComponentMap)" :key="com.id" :class="{'listActive': isActiveItem(com)}" @click="changeCurrentComponent(com)">
+            {{componentMap[com].name ? componentMap[com].name : com}}
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-// 引入 views 文件夹下的所有vue文件
+// 递归引入 views 文件夹下的所有vue文件
 const vueFiles = require.context('@/views/', true, /.vue$/)
 
 // views下组件映射
@@ -52,8 +55,12 @@ export default {
   },
   methods: {
     changeCurrentComponent(com) {
+      console.clear()
       this.currentComponent = com
       localStorage.setItem('currentComponent', this.currentComponent)
+    },
+    isActiveItem(key) {
+      return this.currentComponent === key
     }
   },
   computed: {
@@ -76,14 +83,15 @@ export default {
   text-align: center;
 }
 #main {
+  position: relative;
   padding: 10px;
   border: 1px solid red;
   border-radius: 5px;
 }
 #coms_btn {
   position: fixed;
-  right: 10px;
-  top: 10px;
+  right: 15px;
+  top: 15px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -92,8 +100,21 @@ export default {
   background-color: skyblue;
   color: green;
   z-index: 999;
+  transition: all .5s;
+
+  &:hover {
+    transform: scale(1.2);
+    background-color: red;
+    color: #FFF;
+  }
+
 }
 #com-search {
+  width: 80%;
+  height: 30px;
+  font-size: 20px;
+  color: red;
+  padding-left: 10px;
   margin-left: 20px;
   outline: none;
   border: 1px solid green;
@@ -105,6 +126,7 @@ export default {
   right: 10px;
   border: 1px solid #CCC;
   background-color: #EEE;
+
   h3 {
     text-align: center;
   }
@@ -125,6 +147,29 @@ export default {
         cursor: pointer;
       }
     }
+  }
+}
+
+.listActive {
+  background-color: greenyellow;
+}
+
+
+.bounce-enter-active {
+  animation: bounce-in 1s;
+}
+.bounce-leave-active {
+  animation: bounce-in 1s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2) rotate(360deg);
+  }
+  100% {
+    transform: scale(1) rotate(-360deg);
   }
 }
 </style>
