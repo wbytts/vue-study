@@ -3,7 +3,7 @@
 </template>
 
 <script>
-export const name = 'v-bind 绑定class，字符串形式'
+export const name = 'v-bind 绑定style，对象形式'
 export default {
 
 }

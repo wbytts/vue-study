@@ -8,8 +8,9 @@
     <button id="coms_btn" @click="showComs = !showComs">组件列表</button>
     <div id="coms" v-show="showComs">
       <h3>views组件列表</h3>
+      <input type="text" v-model="filterText" id="com-search">
       <ul>
-        <li v-for="com in Object.keys(componentMap)" :key="com.id" @click="changeCurrentComponent(com)">
+        <li v-for="com in Object.keys(filteredComponentMap)" :key="com.id" @click="changeCurrentComponent(com)">
           {{componentMap[com].name ? componentMap[com].name : com}}
         </li>
       </ul>
@@ -28,6 +29,7 @@ let componentMap = {};
 vueFiles.keys().forEach(path => {
   var com = vueFiles(path).default // 获取 export default 的内容
   var name = vueFiles(path).name // 获取导出的名字
+  if(!name) return;
   // 处理组件路径，生成组件标识
   let key = path.replaceAll('./', '').replaceAll('.vue', '').replaceAll('.', '').replaceAll('/', '-')
   componentMap[key] = {
@@ -44,13 +46,26 @@ export default {
     return {
       componentMap: componentMap,
       currentComponent: localStorage.getItem('currentComponent') || '',
-      showComs: false
+      showComs: false,
+      filterText: ''
     }
   },
   methods: {
     changeCurrentComponent(com) {
       this.currentComponent = com
       localStorage.setItem('currentComponent', this.currentComponent)
+    }
+  },
+  computed: {
+    filteredComponentMap() {
+      let result = {};
+      Object.keys(this.componentMap).forEach(key => {
+        let name = this.componentMap[key].name
+        if(name.includes(this.filterText)) {
+          result[key] = this.componentMap[key]
+        }
+      })
+      return result;
     }
   }
 };
@@ -77,6 +92,11 @@ export default {
   background-color: skyblue;
   color: green;
   z-index: 999;
+}
+#com-search {
+  margin-left: 20px;
+  outline: none;
+  border: 1px solid green;
 }
 #coms {
   position: fixed;
