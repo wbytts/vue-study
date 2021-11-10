@@ -26,7 +26,6 @@ let componentMap = {};
 
 // 遍历组件列表，生成组件映射
 vueFiles.keys().forEach(path => {
-  console.log(path);
   var com = vueFiles(path).default // 获取 export default 的内容
   var name = vueFiles(path).name // 获取导出的名字
   // 处理组件路径，生成组件标识
@@ -36,8 +35,6 @@ vueFiles.keys().forEach(path => {
     name: name
   }
 })
-
-console.log(componentMap)
 
 export default {
   components: {
