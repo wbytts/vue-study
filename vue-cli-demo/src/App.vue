@@ -34,7 +34,12 @@ vueFiles.keys().forEach(path => {
   var name = vueFiles(path).name // 获取导出的名字
   if(!name) return;
   // 处理组件路径，生成组件标识
-  let key = path.replaceAll('./', '').replaceAll('.vue', '').replaceAll('.', '').replaceAll('/', '-')
+  let key = path
+    .replaceAll('./', '')
+    .replaceAll('.vue', '')
+    .replaceAll('.', '')
+    .replaceAll('/', '-')
+    .replaceAll('$', '_')
   componentMap[key] = {
     componentObj: com,
     name: name
@@ -49,8 +54,13 @@ export default {
     return {
       componentMap: componentMap,
       currentComponent: localStorage.getItem('currentComponent') || '',
-      showComs: false,
-      filterText: ''
+      showComs: localStorage.getItem('showComs') || false,
+      filterText: localStorage.getItem('filterText') || ''
+    }
+  },
+  watch: {
+    filterText(newVal, oldVal) {
+      localStorage.setItem('filterText', newVal)
     }
   },
   methods: {
