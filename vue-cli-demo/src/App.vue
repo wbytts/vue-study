@@ -78,7 +78,7 @@ export default {
       let result = {};
       Object.keys(this.componentMap).forEach(key => {
         let name = this.componentMap[key].name
-        if(name.includes(this.filterText)) {
+        if(name.toLowerCase().includes(this.filterText.toLowerCase())) {
           result[key] = this.componentMap[key]
         }
       })
@@ -176,10 +176,10 @@ export default {
     transform: scale(0);
   }
   50% {
-    transform: scale(2) rotate(360deg);
+    transform: scale(2) ;  // rotate(360deg)
   }
   100% {
-    transform: scale(1) rotate(-360deg);
+    transform: scale(1) ; // rotate(-360deg)
   }
 }
 </style>

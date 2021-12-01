@@ -1,11 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <by-btn text="按牛"/>
+  </div>
 </template>
 
 <script>
-export const name = '简单使用JSX'
-export default {
+export const name = 'JSX#简单使用JSX';
+import ByBtn from './by-btn.js';
 
+export default {
+  components: {
+    ByBtn
+  }
 }
 </script>
 
