@@ -1,9 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    #
+      <slot>默认内容</slot>
+    #
+  </div>
 </template>
 
 <script>
-export const name = '函数式组件'
 export default {
 
 }

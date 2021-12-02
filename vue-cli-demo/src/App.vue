@@ -39,6 +39,7 @@ vueFiles.keys().forEach(path => {
     .replaceAll('.vue', '')
     .replaceAll('.', '')
     .replaceAll('/', '-')
+    .replaceAll('~', '-')
     .replaceAll('$', '_')
   componentMap[key] = {
     componentObj: com,

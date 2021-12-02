@@ -6,6 +6,13 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+// 单独引入 moment语言包并配置
+import moment from 'moment'
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+
+
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
