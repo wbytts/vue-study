@@ -3,15 +3,15 @@
     <!-- <h3 id="title">{{$store.state.title}}</h3> -->
     <div class="show-name">
       <span>标题：</span>
-      <span>{{componentMap[currentComponent].name}}</span>
+      <span>{{nowCom.name}}</span>
     </div>
     <div class="show-path">
       <span>文件地址：</span>
-      <span >{{componentMap[currentComponent].path.replace('.', `/src/views`)}}</span>
+      <span >{{nowCom.path.replace('.', `/src/views`)}}</span>
     </div>
     <div id="main">
       <keep-alive>
-        <component :is="componentMap[currentComponent] ? componentMap[currentComponent].componentObj : ''"></component>
+        <component :is="nowCom.componentObj"></component>
       </keep-alive>
     </div>
 
@@ -67,6 +67,8 @@ vueFiles.keys().forEach(path => {
   };
 });
 
+// console.log(componentMap);
+
 export default {
   components: {
     ...componentMap,
@@ -74,7 +76,7 @@ export default {
   data() {
     return {
       componentMap: componentMap,
-      currentComponent: localStorage.getItem('currentComponent') || '',
+      currentComponent: localStorage.getItem('currentComponent') || 'default',
       showComs: localStorage.getItem('showComs') || false,
       filterText: localStorage.getItem('filterText') || '',
     };
@@ -105,6 +107,13 @@ export default {
       });
       return result;
     },
+    nowCom() {
+      if(this.componentMap[this.currentComponent]) {
+        return this.componentMap[this.currentComponent];
+      } else {
+        return this.componentMap['default'];
+      }
+    }
   },
 };
 
