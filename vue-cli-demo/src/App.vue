@@ -1,12 +1,18 @@
 <template>
   <div id="app">
     <!-- <h3 id="title">{{$store.state.title}}</h3> -->
+    <div class="show-name">
+      <span>标题：</span>
+      <span>{{componentMap[currentComponent].name}}</span>
+    </div>
     <div class="show-path">
       <span>文件地址：</span>
       <span >{{componentMap[currentComponent].path.replace('.', `/src/views`)}}</span>
     </div>
     <div id="main">
-      <component :is="componentMap[currentComponent] ? componentMap[currentComponent].componentObj : ''"></component>
+      <keep-alive>
+        <component :is="componentMap[currentComponent] ? componentMap[currentComponent].componentObj : ''"></component>
+      </keep-alive>
     </div>
 
     <button id="coms_btn" @click="showComs = !showComs">组件列表</button>
@@ -101,6 +107,8 @@ export default {
     },
   },
 };
+
+
 </script>
 
 <style lang="scss">
@@ -108,7 +116,7 @@ export default {
   text-align: center;
 }
 
-.show-path {
+.show-path, .show-name {
   height: 40px;
   line-height: 40px;
   span {
