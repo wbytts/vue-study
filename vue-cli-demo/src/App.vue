@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <h3 id="title">{{$store.state.title}}</h3>
+    <!-- <h3 id="title">{{$store.state.title}}</h3> -->
+    <div class="show-path">
+      <span>文件地址：</span>
+      <span >{{componentMap[currentComponent].path.replace('.', `/src/views`)}}</span>
+    </div>
     <div id="main">
       <component :is="componentMap[currentComponent] ? componentMap[currentComponent].componentObj : ''"></component>
     </div>
@@ -53,6 +57,7 @@ vueFiles.keys().forEach(path => {
   componentMap[key] = {
     componentObj: com,
     name: name,
+    path: path
   };
 });
 
@@ -102,10 +107,26 @@ export default {
 #title {
   text-align: center;
 }
+
+.show-path {
+  height: 40px;
+  line-height: 40px;
+  span {
+    font-size: 16px;
+    &:first-child {
+      color: #000;
+    }
+
+    &:last-child {
+      color: green;
+    }
+  }
+}
+
 #main {
   position: relative;
   padding: 10px;
-  border: 1px solid red;
+  border: 4px solid #CCC;
   border-radius: 5px;
 }
 #coms_btn {
@@ -140,7 +161,7 @@ export default {
 }
 #coms {
   position: fixed;
-  width: 400px;
+  width: 350px;
   top: 10px;
   right: 10px;
   border: 1px solid #ccc;
@@ -184,7 +205,7 @@ export default {
     transform: scale(0);
   }
   50% {
-    transform: scale(2); // rotate(360deg)
+    transform: scale(1.2); // rotate(360deg)
   }
   100% {
     transform: scale(1); // rotate(-360deg)

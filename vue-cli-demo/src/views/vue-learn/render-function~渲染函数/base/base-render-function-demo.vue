@@ -15,6 +15,14 @@ import Vue from 'vue';
 import TextJsx01 from './test-jsx-01.js';
 import FunCom01 from './function-component-01.js';
 
+
+/*
+1. render方法从Vue获取一个createElement助手。
+2. 我们以编程方式定义我们的标签。
+3. 然后，我们创建标签并将其属性，类等作为对象传递。 我们可以传递给createElement的选项很多。
+4. 我们返回新创建的元素进行渲染。
+*/
+
 Vue.component('anchored-heading', {
   render: function (createElement) {
     /*

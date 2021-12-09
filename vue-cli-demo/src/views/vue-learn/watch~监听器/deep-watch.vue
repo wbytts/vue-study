@@ -3,7 +3,8 @@
 </template>
 
 <script>
-export const name = 'watch 深度监听'
+export const name = 'base#watch# 深度监听'
+
 export default {
 
 }

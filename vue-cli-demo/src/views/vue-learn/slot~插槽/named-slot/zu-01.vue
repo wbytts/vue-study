@@ -1,9 +1,10 @@
 <template>
-  <div></div>
+  <div>
+    <slot name="title"></slot>
+  </div>
 </template>
 
 <script>
-export const name = '$forceUpdate'
 
 export default {
 

@@ -1,9 +1,11 @@
 <template>
-  <div></div>
+  <div>
+
+  </div>
 </template>
 
 <script>
-export const name = '$forceUpdate'
+export const name = 'ElementUI# Loading'
 
 export default {
 

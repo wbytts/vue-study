@@ -6,6 +6,7 @@
 
 <script>
 export const name = '默认插槽 default slot'
+
 import Zi01 from './zi-01.vue';
 export default {
   components: {

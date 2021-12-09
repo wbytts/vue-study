@@ -1,6 +1,6 @@
 module.exports = {
   // 打印宽度，默认80
-  printWidth: 300,
+  printWidth: 120,
 
   // tab键宽度，默认2
   tabWidth: 2,
@@ -24,7 +24,7 @@ module.exports = {
   jsxSingleQuote: false,
 
   // 当多行时，尽可能打印尾随逗号。(例如，单行数组的末尾永远不会有逗号。)，默认 es5，还有 all 和 none
-  trailingComma: 'es5',
+  trailingComma: 'all',
 
   // 打印对象字面量中括号之间的空格，默认 true
   bracketSpacing: true,
