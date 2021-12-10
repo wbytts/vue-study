@@ -10,12 +10,12 @@ import { loading, log, debounce, throttle } from './decorators';
 
 export default {
   methods: {
-    @loading()
-    @log()
+
+    @log('新增')
     handleClick() {
       console.log('点击了按钮...');
-      for(let i=0; i<10000; i++) console.log('hello', i);
     },
+
   },
 };
 </script>

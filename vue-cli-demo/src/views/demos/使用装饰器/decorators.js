@@ -57,7 +57,7 @@ export const loading =  function(message = '加载中...', errorFn = function() 
 }
 
 
-export const log = function () {
+export const log = function (msg) {
   /**
    * @param target 对应 methods 这个对象
    * @param name 对应属性方法的名称
@@ -67,9 +67,9 @@ export const log = function () {
     console.log(target, name, descriptor)
     const fn = descriptor.value
     descriptor.value = function(...rest) {
-      console.log(`这是调用方法【${name}】前打印的日志`)
+      console.log(`---------- START ${msg} ----------`)
       fn.call(this, ...rest)
-      console.log(`这是调用方法【${name}】后打印的日志`)
+      console.log(`----------  END  ${msg} ----------`)
     }
   }
 }
