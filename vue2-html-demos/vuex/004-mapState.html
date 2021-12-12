@@ -13,20 +13,11 @@
 <body>
 
   <div id="app">
-    <h1>{{$store.state.count}}</h1>
+    <h1>{{a}}</h1>
     <button @click="add">ADD</button>
   </div>
 
   <script>
-    /*
-      store对象可以理解为是一个仓库
-      store.state 就是它存放的东西，即状态
-      store.mutation 可以理解为仓库的工作，搬货，卸货等等，即对状态的操作
-      store.commit(mutation名, 负载) 触发mutation，即向仓库发布一个任务
-
-      注：可以直接操作state，但是建议不要这么做
-      核心：单向数据流，可以让数据可追踪
-    */
     const store = new Vuex.Store({
       state: {
         count: 0
@@ -38,12 +29,20 @@
       }
     });
 
+    console.log();
+
     let vm = new Vue({
       el: '#app',
       store,
+      computed: {
+        ...Vuex.mapState({
+          a: 'count',
+          b: state => state.count
+        })
+      },
       methods: {
         add() {
-          store.commit('increment')
+          store.commit('increment');
         }
       }
     });

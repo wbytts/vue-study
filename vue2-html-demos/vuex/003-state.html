@@ -19,13 +19,11 @@
 
   <script>
     /*
-      store对象可以理解为是一个仓库
-      store.state 就是它存放的东西，即状态
-      store.mutation 可以理解为仓库的工作，搬货，卸货等等，即对状态的操作
-      store.commit(mutation名, 负载) 触发mutation，即向仓库发布一个任务
-
-      注：可以直接操作state，但是建议不要这么做
-      核心：单向数据流，可以让数据可追踪
+      vuex使用单一状态树，用一个对象就包含了全部的应用层级状态
+      至此它便作为一个 “唯一数据源 SSOT” 的存在
+      这也意味着，每个应用将仅仅包含一个store实例
+      单一状态树让我们能够直接地定位任一特定的状态片段
+      在调试的过程中也能轻易地获取整个当前应用状态的快照
     */
     const store = new Vuex.Store({
       state: {
@@ -40,10 +38,13 @@
 
     let vm = new Vue({
       el: '#app',
+      // Vuex 通过 store 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中
+      // 需调用 Vue.use(Vuex), HTML页面时不用
+      // 然后在组件中就可以通过 this.$store 访问到 store对象
       store,
       methods: {
         add() {
-          store.commit('increment')
+          store.commit('increment');
         }
       }
     });
