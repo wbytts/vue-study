@@ -4,7 +4,7 @@ import App from './App.vue';
 
 Vue.use(Vuex);
 
-const store = new Vuex.store({
+const store = new Vuex.Store({
     state: {
         count: 0
     },
