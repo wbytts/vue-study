@@ -7,7 +7,7 @@
     </div>
     <div class="show-path">
       <span>文件地址：</span>
-      <span >{{nowCom.path.replace('.', `/src/views`)}}</span>
+      <span>{{nowCom.path.replace('.', `/src/views`)}}</span>
     </div>
     <div id="main">
       <keep-alive>
@@ -54,16 +54,16 @@ vueFiles.keys().forEach(path => {
     '.': '',
     '/': '-',
     '~': '-',
-    '$': '_'
+    $: '_',
   };
-  for(let k in replaceDict) {
+  for (let k in replaceDict) {
     key = key.replaceAll(k, replaceDict[k]);
   }
 
   componentMap[key] = {
     componentObj: com,
     name: name,
-    path: path
+    path: path,
   };
 });
 
@@ -108,124 +108,141 @@ export default {
       return result;
     },
     nowCom() {
-      if(this.componentMap[this.currentComponent]) {
+      if (this.componentMap[this.currentComponent]) {
         return this.componentMap[this.currentComponent];
       } else {
         return this.componentMap['default'];
       }
-    }
+    },
   },
 };
-
-
 </script>
 
-<style lang="scss">
-#title {
-  text-align: center;
-}
-
-.show-path, .show-name {
-  height: 40px;
-  line-height: 40px;
-  span {
-    font-size: 16px;
-    &:first-child {
-      color: #000;
-    }
-
-    &:last-child {
-      color: green;
-    }
-  }
-}
-
-#main {
-  position: relative;
-  padding: 10px;
-  border: 4px solid #CCC;
-  border-radius: 5px;
-}
-#coms_btn {
-  position: fixed;
-  right: 15px;
-  top: 15px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  outline: none;
-  border: none;
-  background-color: skyblue;
-  color: green;
-  z-index: 999;
-  transition: all 0.5s;
-
-  &:hover {
-    transform: scale(1.2);
-    background-color: red;
-    color: #fff;
-  }
-}
-#com-search {
-  width: 80%;
-  height: 30px;
-  font-size: 20px;
-  color: red;
-  padding-left: 10px;
-  margin-left: 20px;
-  outline: none;
-  border: 1px solid green;
-}
-#coms {
-  position: fixed;
-  width: 350px;
-  top: 10px;
-  right: 10px;
-  border: 1px solid #ccc;
-  background-color: #eee;
-
-  h3 {
+<style lang="scss" scoped>
+#app {
+  #title {
     text-align: center;
   }
-  ul {
-    height: 500px;
-    overflow-y: auto;
-    position: relative;
-    left: -15px;
-    li {
-      padding: 4px;
-      list-style: none;
-      border: 1px solid skyblue;
-      border-radius: 5px;
-      margin-bottom: 2px;
-      &:hover {
-        color: blue;
-        background-color: yellow;
-        cursor: pointer;
+  .show-path,
+  .show-name {
+    height: 40px;
+    line-height: 40px;
+    span {
+      font-size: 16px;
+      &:first-child {
+        color: #000;
+      }
+      &:last-child {
+        color: green;
       }
     }
   }
-}
-
-.listActive {
-  background-color: greenyellow;
-}
-
-.bounce-enter-active {
-  animation: bounce-in 1s;
-}
-.bounce-leave-active {
-  animation: bounce-in 1s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
+  #main {
+    position: relative;
+    padding: 10px;
+    border: 4px solid #ccc;
+    border-radius: 5px;
   }
-  50% {
-    transform: scale(1.2); // rotate(360deg)
+  #coms_btn {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: skyblue;
+    color: green;
+    z-index: 999;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.2);
+      background-color: red;
+      color: #fff;
+    }
   }
-  100% {
-    transform: scale(1); // rotate(-360deg)
+  #com-search {
+    width: 80%;
+    height: 30px;
+    font-size: 20px;
+    color: red;
+    padding-left: 10px;
+    margin-left: 20px;
+    outline: none;
+    border: 1px solid green;
+  }
+  #coms {
+    position: fixed;
+    width: 350px;
+    top: 10px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+
+    h3 {
+      text-align: center;
+    }
+    ul {
+      height: 500px;
+      overflow-y: auto;
+      position: relative;
+      margin: 0 5px;
+      li {
+        padding: 4px;
+        list-style: none;
+        border: 1px dashed skyblue;
+        border-radius: 5px;
+        margin: 2px 5px 2px 5px;
+        font-size: 14px;
+        font-weight: 600;
+        &:hover {
+          color: blue;
+          background-color: yellow;
+          cursor: pointer;
+        }
+      }
+      /* 滚动条样式修改~ */
+      &::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+      }
+      &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background: #535353;
+      }
+      &::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        background: #ededed;
+      }
+    }
+  }
+
+  .listActive {
+    background-color: greenyellow;
+  }
+
+  .bounce-enter-active {
+    animation: bounce-in 1s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 1s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2); // rotate(360deg)
+    }
+    100% {
+      transform: scale(1); // rotate(-360deg)
+    }
   }
 }
 </style>

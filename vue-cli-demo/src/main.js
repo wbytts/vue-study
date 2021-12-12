@@ -3,9 +3,21 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+Vue.config.productionTip = false
+
+// ElementUI
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
+// Vant
+// npm i vant -S
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
+
+
+// Moment
 // 单独引入 moment语言包并配置
 import moment from 'moment'
 import 'moment/locale/zh-cn';
@@ -20,11 +32,6 @@ import ZjTable from 'vue-elementui-table/lib/vue-elementui-table.common.js'
 import 'vue-elementui-table/lib/vue-elementui-table.css'
 Vue.use(ZjTable)
 
-
-
-Vue.config.productionTip = false
-
-Vue.use(ElementUI);
 
 new Vue({
   router,
