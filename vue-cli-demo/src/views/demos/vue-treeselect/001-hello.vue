@@ -7,9 +7,8 @@
 
 <script>
 export const name = 'vue-treeselect# 001-hello';
-
 // import the component
-import Treeselect from '@riophae/vue-treeselect';
+import Treeselect from '@riophae/vue-treeselect'; // 直接引入使用，不是插件，不需要 Vue.use
 // import the styles
 import '@riophae/vue-treeselect/dist/vue-treeselect.css';
 
