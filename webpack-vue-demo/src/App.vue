@@ -2,18 +2,13 @@
   <div>
       <h1>Hello World {{$store.state.count}}</h1>
       <button @click="handleClick">增加</button>
+      <img src="./logo.png"/>
   </div> 
 </template>
 
 <script>
-// import logoImg from './logo.png';
 
 export default {
-  data() {
-    return {
-      logoImg: require('@/logo.png')
-    }
-  },
   methods: {
     handleClick() {
       this.$store.commit('increment');

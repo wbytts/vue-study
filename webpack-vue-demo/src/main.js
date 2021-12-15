@@ -1,19 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createStore from './store.js';
 import App from './App.vue';
 
-Vue.use(Vuex);
 
-const store = new Vuex.Store({
-    state: {
-        count: 0
-    },
-    mutations: {
-        increment(state) {
-            state.count++;
-        }
-    }
-});
+Vue.use(Vuex);
+const store = createStore();
 
 new Vue({
     store,
