@@ -11,7 +11,7 @@
 
 <body>
   <div id="app">
-    {{sum()}}
+    {{sum()}} --- {{c}}
   </div>
 
   <script>
@@ -22,6 +22,7 @@
         b: 4
       },
       methods: {
+        c: 5,
         sum() {
           return this.a + this.b;
         }
