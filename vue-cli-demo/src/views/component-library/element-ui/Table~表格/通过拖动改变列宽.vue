@@ -4,7 +4,10 @@
       <!--
         resizable：对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
           默认为真
-       -->
+
+        拖动触发的事件：
+          header-dragend	当拖动表头改变了列的宽度的时候会触发该事件	newWidth, oldWidth, column, event
+      -->
       <el-table-column prop="date" label="日期" width="180"></el-table-column>
       <!-- 禁止某个列通过拖动改变列宽 -->
       <el-table-column prop="name" label="姓名" width="180" :resizable="false"></el-table-column>
@@ -14,7 +17,7 @@
 </template>
 
 <script>
-export const name = 'ElementUI# Table# 通过拖动改变列宽'
+export const name = 'ElementUI# Table# 通过拖动改变列宽';
 export default {
   data() {
     return {

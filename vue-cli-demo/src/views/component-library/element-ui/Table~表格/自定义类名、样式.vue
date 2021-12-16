@@ -1,20 +1,21 @@
 ﻿<template>
   <div>
+    <!--
+      el-table：
+          row-class-name：行； Function({row, rowIndex}) / 一个String
+          row-style：Function({row, rowIndex}) / Object
+          cell-class-name：单元格； Function({row, column, rowIndex, columnIndex}) / String
+          cell-style：Function({row, column, rowIndex, columnIndex}) / Object
+          header-row-class-name：表头行；Function({row, rowIndex}) / String
+          header-row-style：Function({row, rowIndex}) / Object
+          header-cell-class-name：Function({row, column, rowIndex, columnIndex}) / String
+          header-cell-style：Function({row, column, rowIndex, columnIndex}) / Object
+
+      el-table-column：
+          class-name：列的类名
+          label-class-name：列标题的类名
+    -->
     <el-table :data="tableData" style="width: 100%" strip border>
-      <!--
-        有复选框的列，type="selection"
-        此时不需要再设置 label，没有效果
-
-        selectable 接收一个函数，
-          函数参数为 (row, index)
-          函数的返回值用来决定这一行的 CheckBox 是否可以勾选
-
-        有关事件：
-          select	          当用户手动勾选数据行的 Checkbox 时触发的事件	  selection, row
-          select-all	      当用户手动勾选全选 Checkbox 时触发的事件	      selection
-          selection-change	当选择项发生变化时会触发该事件	                selection
-      -->
-      <el-table-column label="选项" type="selection" :selectable="canSelect"></el-table-column>
       <el-table-column prop="date" label="日期" width="180"></el-table-column>
       <el-table-column prop="name" label="姓名" width="180"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-export const name = 'ElementUI# Table# 复选框列';
+export const name = 'ElementUI# Table# 自定义类名';
 export default {
   data() {
     return {
@@ -50,11 +51,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    canSelect(row, index) {
-      return index % 2 == 1;
-    },
   },
 };
 </script>
