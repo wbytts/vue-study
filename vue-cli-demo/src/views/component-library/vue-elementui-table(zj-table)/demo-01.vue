@@ -6,7 +6,7 @@
 </template>
 
 <script>
-export const name = 'vue-elementui-table# demo01';
+export const name = 'zj-table# demo01';
 
 export default {
   data() {

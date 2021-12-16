@@ -64,7 +64,7 @@ export const log = function (msg) {
    * @param descriptor 对应属性方法的修饰符
    */
   return function(target, name, descriptor) {
-    console.log(target, name, descriptor)
+    // console.log(target, name, descriptor)
     const fn = descriptor.value
     descriptor.value = function(...rest) {
       console.log(`---------- START ${msg} ----------`)

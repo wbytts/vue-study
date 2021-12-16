@@ -15,7 +15,7 @@
 </template>
 
 <script>
-export const name = 'ElementUI# 修改表头颜色';
+export const name = 'ElementUI# Table# 修改表头颜色';
 
 export default {
   data() {

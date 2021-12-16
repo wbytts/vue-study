@@ -11,7 +11,7 @@
       <!--
         label：显示的标题
         prop：对应列内容的字段名（也可以使用 property 属性）
-        width：对应列的宽度   
+        width：对应列的宽度
         min-width：对应列的最小宽度，与 width 的区别是 width 是固定的
                     min-width 会把剩余宽度按比例分配给设置了 min-width 的列
         align：列里面内容的对齐方式
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-export const name = 'ElementUI# 基本表格的使用'
+export const name = 'ElementUI# Table# 基本表格的使用'
 export default {
   data() {
     return {
