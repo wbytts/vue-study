@@ -11,13 +11,18 @@
 
 <body>
   <div id="app">
-    <!-- （特性）使用v-bind绑定style属性时，如果检测到了需要添加浏览器前缀的属性，会自动添加前缀 -->
-
+    <button @click="fun">按钮</button>
   </div>
 
   <script>
     let vm = new Vue({
-      el: '#app'
+      el: '#app',
+      methods: {
+        fun: () => {
+          // 写成箭头函数去调用，这里的 this 拿到的不是vue实例，而是 window对象
+          console.log(this);
+        }
+      }
     });
   </script>
 </body>
