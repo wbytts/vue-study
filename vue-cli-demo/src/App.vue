@@ -3,11 +3,11 @@
     <!-- <h3 id="title">{{$store.state.title}}</h3> -->
     <div class="show-name">
       <span>标题：</span>
-      <span>{{nowCom.name}}</span>
+      <span>{{ nowCom.name }}</span>
     </div>
     <div class="show-path">
       <span>文件地址：</span>
-      <span>{{nowCom.path.replace('.', `/src/views`)}}</span>
+      <span>{{ nowCom.path.replace(".", `/src/views`) }}</span>
     </div>
     <div id="main">
       <keep-alive>
@@ -25,9 +25,9 @@
           <li
             v-for="com in Object.keys(filteredComponentMap)"
             :key="com.id"
-            :class="{'listActive': isActiveItem(com)}"
+            :class="{ listActive: isActiveItem(com) }"
             @click="changeCurrentComponent(com)"
-          >{{componentMap[com].name ? componentMap[com].name : com}}</li>
+          >{{ componentMap[com].name ? componentMap[com].name : com }}</li>
         </ul>
       </div>
     </transition>
@@ -55,7 +55,9 @@ vueFiles.keys().forEach(path => {
     '/': '-',
     '~': '-',
     $: '_',
-    '+': '_'
+    '+': '_',
+    '(': '_',
+    ')': '_',
   };
   for (let k in replaceDict) {
     key = key.replaceAll(k, replaceDict[k]);
@@ -92,6 +94,7 @@ export default {
       console.clear();
       this.currentComponent = com;
       localStorage.setItem('currentComponent', this.currentComponent);
+      console.log(this.$store.state.title);
     },
     isActiveItem(key) {
       return this.currentComponent === key;
@@ -115,6 +118,12 @@ export default {
         return this.componentMap['default'];
       }
     },
+  },
+  created() {
+    window.document.title = this.$store.state.title;
+  },
+  updated() {
+    window.document.title = this.$store.state.title;
   },
 };
 </script>
@@ -180,6 +189,7 @@ export default {
     right: 10px;
     border: 1px solid #ccc;
     background-color: #eee;
+    z-index: 999;
 
     h3 {
       text-align: center;
