@@ -71,7 +71,7 @@ module.exports = {
   // 是否在Vue文件中的<script>和<style>标签内缩进代码。
   // 有些人(比如Vue的创建者)不缩进以保存缩进级别，但这可能会破坏编辑器中的代码折叠。
   // 默认 false
-  vueIndentScriptAndStyle: false,
+  vueIndentScriptAndStyle: true,
 
   /*
     "lf" – Line Feed only (\n), common on Linux and macOS as well as inside git repos

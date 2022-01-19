@@ -1,7 +1,6 @@
 ﻿import axios from "axios";
 import qs from 'qs';
 
-
 // axios默认参数
 axios.defaults.responseType = "json";
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
