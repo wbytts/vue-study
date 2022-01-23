@@ -58,6 +58,7 @@ vueFiles.keys().forEach(path => {
     '+': '_',
     '(': '_',
     ')': '_',
+    ' ': '',
   };
   for (let k in replaceDict) {
     key = key.replaceAll(k, replaceDict[k]);
