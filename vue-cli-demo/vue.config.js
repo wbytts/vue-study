@@ -8,11 +8,11 @@ module.exports = {
   devServer: {
     host: '0.0.0.0',
     port: 9901,
-    open: 'msedge',
+    // open: 'msedge', // 使用指定的浏览器打开
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1',
-        pathRewrite: { '^/api': '' },
+        target: 'http://127.0.0.1:5000',
+        pathRewrite: {'^/api': ''},
       },
     },
   },

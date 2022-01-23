@@ -5,7 +5,7 @@
 </template>
 
 <script>
-export const name = '默认插槽 default slot'
+export const name = '#Vue# 默认插槽 default slot'
 
 import Zi01 from './zi-01.vue';
 export default {
