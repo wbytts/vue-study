@@ -22,7 +22,7 @@ axios.interceptors.response.use(
     return response;
   },
   error => {
-    return Promise.reject(errorData);x
+    return Promise.reject(errorData);
   }
 );
 

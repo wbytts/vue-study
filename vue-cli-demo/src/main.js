@@ -16,7 +16,6 @@ const router = createRouter();
 // 创建 Vuex.Store 对象
 const store = createStore();
 
-
 // 创建Vue对象
 let app = new Vue({
   router,
@@ -27,8 +26,5 @@ let app = new Vue({
   beforeCreate() {
     // 在Vue原型实例上挂载根Vue实例引用，用于全局事件
     Vue.prototype.$bus = this;
-  }
+  },
 }).$mount('#app');
-
-
-
