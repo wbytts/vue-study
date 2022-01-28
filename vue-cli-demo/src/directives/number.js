@@ -5,6 +5,5 @@ Vue.directive('number', {
   bind(element, binding, vnode, oldVnode) {
   },
   update(element, binding, vnode, oldVnode) {
-
   }
 })

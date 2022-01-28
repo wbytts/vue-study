@@ -11,12 +11,13 @@ import createPersistedState from 'vuex-persistedstate';
 */
 
 const dataState = createPersistedState({
-  paths: ['log'],
+  paths: ['log', 'index'],
 });
 
 export const createStore = () => {
   return new Vuex.Store({
     plugins: [dataState],
+    modules,
     state: {
       a: 3,
     },
@@ -125,7 +126,6 @@ export const createStore = () => {
         如果我们使用一个纯对象来声明模块的状态，那么这个状态对象会通过引用被共享，导致状态对象被修改时 store 或模块间数据互相污染的问题。
         实际上这和 Vue 组件内的 data 是同样的问题。因此解决办法也是相同的——使用一个函数来声明模块状态（仅 2.3.0+ 支持）
     */
-    modules,
   });
 };
 
