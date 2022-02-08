@@ -2,7 +2,7 @@
   <div>
     <!--
       el-table：
-          row-class-name：行； Function({row, rowIndex}) / 一个String
+          row-class-name：行； Function({row, rowIndex}) / String
           row-style：Function({row, rowIndex}) / Object
           cell-class-name：单元格； Function({row, column, rowIndex, columnIndex}) / String
           cell-style：Function({row, column, rowIndex, columnIndex}) / Object

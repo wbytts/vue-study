@@ -86,7 +86,7 @@ export const createStore = () => {
         一个 store.dispatch 在不同模块中可以触发多个 action 函数。
         在这种情况下，只有当所有触发函数完成后，返回的 Promise 才会执行。
       */
-      action1(context) {}
+      action1(context) {},
     },
     /*
       !模块
@@ -128,6 +128,3 @@ export const createStore = () => {
     */
   });
 };
-
-
-
