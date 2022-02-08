@@ -10,16 +10,18 @@
         事件：
           current-change(currentRow, oldCurrentRow)	当表格的当前行发生变化的时候会触发该事件，如果要高亮当前行，请打开表格的 highlight-current-row 属性
     -->
+    <input type="text" v-model="rowkey" class="border-2 border-black border-solid">
+    <el-button @click="handleSelect">选中</el-button>
     <el-table
       ref="ttt"
       :data="tableData"
       size="mini"
       style="width: 100%"
-      :row-key="row => row.id"
+      :row-key="rowkey"
       strip
       border
       highlight-current-row
-      @current-change="currentRow => $refs.ttt.currentRowKey = currentRow.id"
+      @current-change="handleSelect"
     >
       <el-table-column label="id" prop="id" width="60"></el-table-column>
       <el-table-column label="text" prop="text"></el-table-column>
@@ -42,24 +44,32 @@ export default {
         { id: 6, text: '666666666' },
       ],
       timer: null,
+      rowkey: '',
     };
   },
-  methods: {},
+  methods: {
+    handleSelect() {
+      console.log(this.rowkey);
+      let row = this.tableData.filter(row => row.id == this.rowkey);
+      this.$refs.ttt.setCurrentRow(this.rowkey)
+    }
+  },
   mounted() {
-    this.timer = setInterval(() => {
-      let firstRow = this.tableData.filter(row => row.id == 1)[0];
-      console.log(firstRow);
-      let currentRowKey = this.$refs.ttt.currentRowKey;
-      if (currentRowKey) {
-        let row = this.tableData.filter(row => row.id == currentRowKey)[0];
-        this.$refs.ttt.setCurrentRow(row);
-        if(currentRowKey == this.tableData[this.tableData.length - 1].id) {
-          this.$refs.ttt.setCurrentRow(firstRow);
-        }
-      } else {
-        this.$refs.ttt.setCurrentRow(firstRow);
-      }
-    }, 2000);
+    // let firstRow = this.tableData.filter(row => row.id == 1)[0];
+    // this.timer = setInterval(() => {
+    //   let currentRowKey = this.$refs.ttt.currentRowKey;
+    //   if (currentRowKey) {
+    //     let row = this.tableData.filter(row => row.id == currentRowKey)[0];
+    //     this.$refs.ttt.setCurrentRow(row);
+    //     if(currentRowKey == this.tableData[this.tableData.length - 1].id) {
+    //       this.$refs.ttt.setCurrentRow(firstRow);
+    //       this.$refs.ttt.currentRowKey = 1
+    //     }
+    //   } else {
+    //     this.$refs.ttt.setCurrentRow(firstRow);
+    //     this.$refs.ttt.currentRowKey = 1
+    //   }
+    // }, 2000);
   },
   beforeDestroy() {
     clearInterval(this.timer);
