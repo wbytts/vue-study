@@ -11,10 +11,13 @@ Vue.config.productionTip = false;
 
 // 加载核心插件
 Vue.use(pluginCore);
+
 // 创建 VueRouter 对象
 const router = createRouter();
 // 创建 Vuex.Store 对象
 const store = createStore();
+
+
 
 // 创建Vue对象
 let app = new Vue({

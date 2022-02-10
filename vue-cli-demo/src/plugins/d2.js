@@ -13,19 +13,21 @@ import {
   D2pDemoExtend,
 } from 'd2p-extends'; // 组件支持懒加载
 
-// 安装扩展插件
-Vue.use(D2pTreeSelector);
-Vue.use(D2pAreaSelector);
-Vue.use(D2pIconSelector);
-Vue.use(D2pFullEditor);
-Vue.use(D2pFileUploader);
-Vue.use(D2pDemoExtend);
+/*
+演示地址  http://preview.d2-crud-plus.docmirror.cn/D2CrudPlusExample/
+文档  http://d2-crud-plus.docmirror.cn/d2-crud-plus/
+Gitee   https://gitee.com/greper/d2-crud-plus
+GitHub  https://github.com/greper/d2-crud-plus
+请不要吝啬您的star，谢谢！
+可以通过 vue.use(d2CrudPlus,{starTip:false}) 来关闭以上消息
+*/
 
 export default function (Vue) {
   // Vue.use(D2Crud);
   Vue.use(d2Crud, { size: 'small' }); // 设置默认尺寸
   Vue.use(d2CrudX, { name: 'd2-crud-x' }); //注册名称为d2-crud-x ，不传name则使用d2-crud作为标签名称
   Vue.use(d2CrudPlus, {
+    starTip:false, // 启动时控制台的提示消息
     //获取数据字典的请求方法
     //可在dict中配置getData方法覆盖此全局方法
     getRemoteDictFunc(url, dict) {
@@ -73,4 +75,13 @@ export default function (Vue) {
       };
     },
   });
+
+  // 安装扩展插件
+  Vue.use(D2pTreeSelector);
+  Vue.use(D2pAreaSelector);
+  Vue.use(D2pIconSelector);
+  Vue.use(D2pFullEditor);
+  Vue.use(D2pFileUploader);
+  Vue.use(D2pDemoExtend);
+  // Vue.use(D2pUploader);
 }

@@ -5,7 +5,7 @@ import loadVant from './vant.js';
 import loadZjTable from './zj-table';
 import loadVueContextMenu from './vue-contextmenu.js';
 import loadAntDesignVue from './ant-design-vue.js';
-import loadD2Crud from './d2-crud'
+import loadD2 from './d2'
 import * as R from 'ramda/dist/ramda.js';
 import _ from 'lodash';
 import moment from 'moment'
@@ -20,9 +20,8 @@ export const pluginCore = {
     loadAntDesignVue(Vue); // 加载 Ant Design Vue
     loadVant(Vue); // 加载 Vant
     loadZjTable(Vue); // 加载 zj-table
-    loadVueContextMenu(Vue);
-    loadD2Crud(Vue)
-
+    loadVueContextMenu(Vue); // 加载 vue-context-menu
+    loadD2(Vue) // 加载 d2 相关
 
     // 配置 moment.js 语言
     moment.locale('zh-cn');

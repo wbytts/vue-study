@@ -3,7 +3,6 @@
     <v-main>
       <v-container>
         <v-btn depressed color="primary"> Primary </v-btn>
-
       </v-container>
     </v-main>
   </v-app>

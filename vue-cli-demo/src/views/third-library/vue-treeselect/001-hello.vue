@@ -1,7 +1,7 @@
 <!-- Vue SFC -->
 <template>
   <div id="app">
-    <treeselect v-model="value" :multiple="true" :options="options" />
+    <Treeselect v-model="value" :multiple="true" :options="options" />
   </div>
 </template>
 

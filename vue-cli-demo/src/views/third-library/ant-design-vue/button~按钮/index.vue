@@ -17,7 +17,6 @@ export const name = "AntDesignVue# button";
 
 export default {
   mounted() {
-    this.$store.commit("SET_TITLE", "AntDesignVue 按钮");
   },
   data() {
     return {};
