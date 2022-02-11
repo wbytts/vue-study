@@ -8,7 +8,10 @@
     <p>边框样式已被全局重置</p>
     <p>按钮默认有轮廓</p>
     <hr />
-    <button class="bg-blue-800 text-white p-5 border-4 border-green-400 border-dotted rounded-full">按钮</button>
+    <!-- <button class="bg-blue-800 text-white p-5 border-4 border-green-400 border-dotted rounded-full">按钮</button> -->
+
+    <input type="text" class="">
+
   </div>
 </template>
 
