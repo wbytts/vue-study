@@ -18,7 +18,6 @@ const router = createRouter();
 const store = createStore();
 
 
-
 // 创建Vue对象
 let app = new Vue({
   router,
