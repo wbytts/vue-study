@@ -14,7 +14,7 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      msg: 'hello'
+      msg: 'hello',
     };
   },
   computed: {
@@ -26,8 +26,8 @@ export default {
       // 为了能够使用 `this` 获取局部状态，必须使用常规函数
       a3(state) {
         return this.msg + '#' + state.a;
-      }
-    })
+      },
+    }),
 
     // !当映射的计算属性的名称与 state 的子节点名称相同时，我们也可以给 mapState 传一个字符串数组
     // 映射 this.count 为 store.state.count
