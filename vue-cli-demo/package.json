@@ -27,6 +27,7 @@
     "jspdf": "^2.3.1",
     "lit-copy-resource": "^1.0.14",
     "moment": "^2.29.1",
+    "nanoid": "^3.3.0",
     "ramda": "^0.27.1",
     "strvejs": "^2.1.0",
     "v-viewer": "^1.6.3",
