@@ -27,7 +27,10 @@ export default {
   },
   created() {
     this.data.forEach(item => {
-      this.isFold = { ...this.isFold, [item.id]: false };
+      this.isFold = {
+        ...this.isFold,
+        [item.id]: false,
+      };
     });
   },
 };
@@ -42,4 +45,3 @@ export default {
   padding-left: 20px;
 }
 </style>
-
