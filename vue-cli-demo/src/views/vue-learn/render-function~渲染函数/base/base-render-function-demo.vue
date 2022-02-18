@@ -3,18 +3,20 @@
     <demo-01>hello</demo-01>
     <anchored-heading level="3">你好啊</anchored-heading>
     <text-jsx-01></text-jsx-01>
-    <fun-com-01></fun-com-01>
+    <fun-com-01 message="张三"></fun-com-01>
+    <fun-com-02></fun-com-02>
+    <!-- <fun-com-03></fun-com-03> -->
   </div>
 </template>
 
 <script>
-export const name = '基本渲染函数例子'
+export const name = '渲染函数# 基本渲染函数例子';
 
-import demo01 from './demo-01.vue'
+import demo01 from './demo-01.vue';
 import Vue from 'vue';
 import TextJsx01 from './test-jsx-01.js';
 import FunCom01 from './function-component-01.js';
-
+import FunCom02 from './function-component-02.js';
 
 /*
 1. render方法从Vue获取一个createElement助手。
@@ -32,24 +34,29 @@ Vue.component('anchored-heading', {
       “虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。
     */
     return createElement(
-      'h' + this.level,   // 标签名称
-      this.$slots.default // 子节点数组
-    )
+      'h' + this.level, // 标签名称
+      this.$slots.default, // 子节点数组
+    );
   },
   props: {
     level: {
-      type: Number,
-      required: true
-    }
-  }
+      type: String,
+      required: true,
+    },
+  },
 });
 
+// const FunCom03 = ({ props }) => <p>hello {props.message}</p>;
 
 export default {
   components: {
-    demo01, TextJsx01, FunCom01
-  }
-}
+    demo01,
+    TextJsx01,
+    FunCom01,
+    FunCom02,
+    // FunCom03,
+  },
+};
 </script>
 
 <style></style>

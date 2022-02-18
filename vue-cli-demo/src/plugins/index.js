@@ -25,7 +25,7 @@ export const pluginCore = {
     loadVueContextMenu(Vue); // 加载 vue-context-menu
     loadD2(Vue); // 加载 d2 相关
     loadVueVxxx(Vue);
-    loadFloatingVue(Vue);
+    loadVTooltip(Vue);
 
     // 配置 moment.js 语言
     moment.locale('zh-cn');
