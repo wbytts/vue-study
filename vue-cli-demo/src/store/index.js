@@ -10,6 +10,9 @@ import createPersistedState from 'vuex-persistedstate';
   异步逻辑都应该封装到 action 里面。
 */
 
+/*
+vue-persistedstate：
+*/
 const dataState = createPersistedState({
   paths: ['log', 'index'],
 });
@@ -71,6 +74,14 @@ export const createStore = () => {
 
       // 可以在组件中使用 this.$store.commit('xxx') 提交 mutation
       // 或者使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
+
+      /*
+        关于 mutation的名字，最好要见名知意，普遍的几个好习惯如下：
+          1、因为mutation类似于事件，所以以动词开头
+          2、单词间以下划线进行连接
+          3、保存到vuex里面的状态用RECORD标识
+          4、缓存到本地的状态用SAVE标识
+      */
     },
     /*
       !Action类似于Mutation，不同的是：

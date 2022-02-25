@@ -1,14 +1,20 @@
 ﻿
-const state = () => ({
+// const state = () => ({
+//   logs: []
+// });
 
-});
+const state = {
+  logs: []
+}
 
 const getters = {
 
 };
 
 const mutations = {
-
+  ADD_LOG(state, log) {
+    state.logs = [...state.logs, log]
+  }
 };
 
 const actions = {
