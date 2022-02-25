@@ -1,25 +1,26 @@
-﻿
-// const state = () => ({
-//   logs: []
+﻿// const state = () => ({
+//   logs: [],
+//   lastLog: {},
 // });
 
 const state = {
-  logs: []
-}
-
-const getters = {
-
+  logs: [],
+  lastLog: {},
 };
+
+const getters = {};
 
 const mutations = {
   ADD_LOG(state, log) {
-    state.logs = [...state.logs, log]
-  }
+    state.logs = [...state.logs, log];
+    state.lastLog = log;
+    while (state.logs.length > 100) {
+      state.logs.splice(0, 1);
+    }
+  },
 };
 
-const actions = {
-
-};
+const actions = {};
 
 export default {
   namespaced: true,
