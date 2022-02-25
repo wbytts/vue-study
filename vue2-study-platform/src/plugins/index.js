@@ -27,6 +27,7 @@ export const pluginCore = {
     loadVueVxxx(Vue);
     loadVTooltip(Vue);
 
+
     // 配置 moment.js 语言
     moment.locale('zh-cn');
 
