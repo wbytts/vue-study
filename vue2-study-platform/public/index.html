@@ -19,6 +19,10 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script src="<%= BASE_URL %>lib/pdf.js/pdf.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = '<%= BASE_URL %>pdf.worker.js';
+    </script>
   </body>
 
 </html>
