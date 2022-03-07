@@ -1,0 +1,12 @@
+﻿
+
+###
+
+GET http://www.baidu.com
+
+###
+
+POST http://192.168.87.29:18089/airport-frontend-server/captcha/render
+content-type: application/json
+
+{"w": 100, "h": 40}
