@@ -28,6 +28,7 @@
     "lit-copy-resource": "^1.0.14",
     "moment": "^2.29.1",
     "nanoid": "^3.3.0",
+    "pdfvuer": "^1.9.2",
     "ramda": "^0.27.1",
     "strvejs": "^2.1.0",
     "v-tooltip": "^2.1.3",

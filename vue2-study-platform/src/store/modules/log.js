@@ -20,7 +20,11 @@ const mutations = {
   },
 };
 
-const actions = {};
+const actions = {
+  log({ commit }, data) {
+    commit('ADD_LOG', data);
+  },
+};
 
 export default {
   namespaced: true,
