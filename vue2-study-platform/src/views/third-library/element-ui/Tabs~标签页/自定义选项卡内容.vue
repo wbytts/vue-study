@@ -11,7 +11,7 @@
 </template>
 
 <script>
-export const name = 'elementui# tabs# 选项卡标签自定义'
+export const name = 'ElementUI# tabs# 选项卡标签自定义'
 
 export default {
   data() {

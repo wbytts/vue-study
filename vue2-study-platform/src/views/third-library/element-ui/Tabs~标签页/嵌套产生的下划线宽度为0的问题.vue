@@ -15,7 +15,7 @@
 </template>
 
 <script>
-export const name = 'elementui# tabs# 嵌套产生的下划线宽度为0的问题'
+export const name = 'ElementUI# tabs# 嵌套产生的下划线宽度为0的问题'
 
 export default {
   data() {
