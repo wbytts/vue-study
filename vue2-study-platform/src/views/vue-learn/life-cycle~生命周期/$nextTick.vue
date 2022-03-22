@@ -1,12 +1,20 @@
 <template>
-  <div></div>
+  <div>
+
+  </div>
 </template>
 
 <script>
-export const name = 'nextTick'
-export default {
+
+export const name = 'base# $nextTick'
+/*
+
+*/
+
+export default  {
 
 }
+
 </script>
 
 <style>
