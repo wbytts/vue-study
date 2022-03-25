@@ -8,15 +8,14 @@
 </template>
 
 <script>
-import Zu02 from './zu-02.vue'
+import Zu02 from './zu-02.vue';
 
 export default {
   components: {
-    Zu02
-  }
-}
+    Zu02,
+  },
+};
 </script>
 
 <style>
-
 </style>

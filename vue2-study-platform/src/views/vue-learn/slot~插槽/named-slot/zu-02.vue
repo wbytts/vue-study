@@ -5,16 +5,12 @@
 
     <!-- 有名字的插座 -->
     <slot name="good">有名字的插座的默认内容</slot>
-
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

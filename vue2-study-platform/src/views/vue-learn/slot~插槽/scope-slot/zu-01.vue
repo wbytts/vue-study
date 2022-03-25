@@ -1,8 +1,6 @@
 <template>
   <div>
-    <slot name="title" :info="info">
-
-    </slot>
+    <slot name="title" :info="info"></slot>
   </div>
 </template>
 
@@ -12,13 +10,12 @@ export default {
     return {
       info: {
         name: 'wby',
-        age: 18
-      }
-    }
-  }
-}
+        age: 18,
+      },
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>
