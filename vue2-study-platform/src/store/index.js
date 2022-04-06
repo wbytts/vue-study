@@ -11,15 +11,42 @@ import createPersistedState from 'vuex-persistedstate';
 */
 
 /*
+store对象结构：
+    commit: ƒ boundCommit(type, payload, options)
+    dispatch: ƒ boundDispatch(type, payload)
+    getters: {}
+    registerModule: (e,t,r)=> {…}
+    replaceState: e=>{l.initialState=A(e),t(e)}
+    strict: false
+    unregisterModule: e=> {…}
+    _actionSubscribers: [{…}]
+    _actions: {action1: Array(1), log/log: Array(1)}
+    _committing: false
+    _devtoolHook: {enabled: undefined, _buffer: Array(1), store: Store, initialState: {…}, Vue: ƒ, …}
+    _makeLocalGettersCache: {}
+    _modules: ModuleCollection {root: Module}
+    _modulesNamespaceMap: {log/: Module}
+    _mutations: {changeA: Array(1), log/ADD_LOG: Array(1)}
+    _subscribers: (2) [ƒ, ƒ]
+    _vm: Vue {_uid: 1, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: Vue, …}
+    _watcherVM: Vue {_uid: 0, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: Vue, …}
+    _wrappedGetters: {a1: ƒ, a2: ƒ, xA: ƒ}
+    state:
+        先是store对象根状态
+        然后是各个模块名字
+        然后是各个模块内部的状态
+*/
+
+/*
 vue-persistedstate：
 */
-const dataState = createPersistedState({
+const storageState = createPersistedState({
   paths: ['log', 'index'],
 });
 
 export const createStore = () => {
   return new Vuex.Store({
-    plugins: [dataState],
+    plugins: [storageState],
     modules,
     state: {
       a: 3,
@@ -72,6 +99,7 @@ export const createStore = () => {
       // !mutation 必须是同步函数
       // 在 Vuex 中，mutation 都是同步事务
 
+      // ! this.$store.commit('xxx')
       // 可以在组件中使用 this.$store.commit('xxx') 提交 mutation
       // 或者使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
 
@@ -91,6 +119,8 @@ export const createStore = () => {
     actions: {
       // Action函数接受一个与 store 实例具有相同方法和属性的 context 对象
       // Action函数同样接收类似mutation的 payload载荷
+
+      // ! this.$store.dispatch(...)
       // !Action 通过 store.dispatch 方法触发 dispatch('action', payload) / dispatch({type: 'action', ...})
       // Action支持通过直接传一个对象并指定type的形式触发
       /*

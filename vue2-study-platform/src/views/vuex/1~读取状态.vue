@@ -40,6 +40,9 @@ export default {
       console.log(`a=${a}`);
     },
   },
+  mounted() {
+    console.log(this.$store);
+  }
 };
 </script>
 
