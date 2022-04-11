@@ -1,5 +1,5 @@
 ﻿<template>
-
+  <async-comp></async-comp>
 </template>
 
 <script>
@@ -9,13 +9,24 @@
 * component 选项重命名为 loader
 * Loader函数不再接收resolve和reject，且必须返回一个Promise
 */
-export default {
 
-}
+import { defineAsyncComponent } from 'vue';
+
+export default {
+  components: {
+    asyncComp: defineAsyncComponent(() => import('../components/test-async-comp.vue')),
+    asyncComp2: defineAsyncComponent({
+      loader: () => import('../components/test-async-comp.vue'),
+      delay: 200,
+      timeout: 3000,
+      // errorComponent: //
+      // loadingComponent: //
+    })
+  },
+};
 </script>
 
 <style>
-
 </style>
 
 

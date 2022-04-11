@@ -1,5 +1,6 @@
 ﻿<template>
   <test-vmodel v-model:counter="x"/>
+  <!-- <test-vmodel :counter="x" @update:counter="x=$event" /> -->
 </template>
 
 <script>
