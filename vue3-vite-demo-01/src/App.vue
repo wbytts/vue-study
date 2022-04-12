@@ -1,5 +1,5 @@
 <template>
-  <view-031 />
+  <view-032 />
 </template>
 
 <script>
@@ -23,12 +23,13 @@ import View024 from './views/view-024-useMouse.vue'
 import View025 from './views/view-025-ref语法糖.vue'
 import View030 from './views/view-030-过渡.vue'
 import View031 from './views/view-031-useStore.vue'
+import View032 from './views/view-032-h函数.vue'
 
 export default {
   components: {
     View000, View001, View002, View003, View004, View005, View006,
     View007, View008, View009, View010, View011, View012, View013,
-    View014, View023, View024, View025, View030, View031
+    View014, View023, View024, View025, View030, View031, View032
   }
 }
 </script>
