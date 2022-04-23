@@ -1,5 +1,5 @@
 ﻿<template>
-  <div @click="add">
+  <div class="box" @click="add">
     {{count}}
   </div>
 </template>
@@ -15,6 +15,9 @@ let add = () => store.commit('add');
 </script>
 
 <style lang="scss" scoped>
+.box {
+  color: red;
+}
 </style>
 
 

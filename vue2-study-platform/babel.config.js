@@ -2,15 +2,16 @@
 const plugins = [];
 
 if (process.env.NODE_ENV === 'production') {
-
   // 如果是生产环境，则自动清理掉打印的日志，但保留error 与 warn
   plugins.push([
     'transform-remove-console',
     {
       // 保留 console.error 与 console.warn
-      exclude: ['error', 'warn']
-    }
+      exclude: ['error', 'warn'],
+    },
   ]);
+
+  plugins.push('@babel/plugin-transform-react-jsx');
 }
 
 // npm install babel-plugin-component -D
@@ -23,16 +24,15 @@ if (process.env.NODE_ENV === 'production') {
 //   }
 // ]);
 
-
 module.exports = {
   presets: [
     '@vue/cli-plugin-babel/preset',
-    ['@vue/babel-preset-jsx',
+    [
+      '@vue/babel-preset-jsx',
       {
-        'injectH': false
-      }]
+        injectH: false,
+      },
+    ],
   ],
-  plugins: [
-    ...plugins
-  ]
+  plugins: [...plugins],
 };

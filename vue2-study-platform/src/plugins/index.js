@@ -6,18 +6,27 @@ import loadZjTable from './zj-table';
 import loadVueContextMenu from './vue-contextmenu.js';
 import loadAntDesignVue from './ant-design-vue.js';
 import loadD2 from './d2';
-import * as R from 'ramda/dist/ramda.js';
-import _ from 'lodash';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
-import dayjs from 'dayjs';
 import loadVueVxxx from './vue-v-xxx';
 import loadVTooltip from './v-tooltip';
+// import loadVuera from './vuera';
+import loadLodash from './lodash';
+import loadRamda from './ramda';
+import loadEchartsAll from './echarts-all';
+import loadEchartsUse from './echarts-use';
+import loadVueEcharts from './vue-echarts';
+import loadMoment from './moment';
+import loadDayjs from './dayjs';
+import loadD3 from './d3';
+import loadVueJsonViewer from './vue-json-viewer.js';
 
 export const pluginCore = {
   install(Vue, options) {
     Vue.use(VueRouter); // 加载 VueRouter 插件
     Vue.use(Vuex); // 加载 Vuex 插件
+    loadMoment(Vue);
+    loadDayjs(Vue);
+    loadRamda(Vue);
+    loadLodash(Vue);
     loadElementUi(Vue); // 加载 Element UI
     loadAntDesignVue(Vue); // 加载 Ant Design Vue
     loadVant(Vue); // 加载 Vant
@@ -26,15 +35,11 @@ export const pluginCore = {
     loadD2(Vue); // 加载 d2 相关
     loadVueVxxx(Vue);
     loadVTooltip(Vue);
-
-
-    // 配置 moment.js 语言
-    moment.locale('zh-cn');
-
-    // 挂载全局变量
-    window.R = R;
-    window._ = _;
-    window.moment = moment;
-    window.dayjs = dayjs;
+    // loadVuera(Vue);
+    loadEchartsAll(Vue); // 加载 echarts，全量引入
+    // loadEchartsUse(Vue); // 加载 echarts，按需引入
+    loadVueEcharts(Vue);
+    loadD3(Vue);
+    loadVueJsonViewer(Vue);
   },
 };

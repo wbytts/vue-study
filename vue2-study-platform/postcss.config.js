@@ -4,3 +4,14 @@
     require('autoprefixer'),
   ]
 };
+
+// module.exports = {
+//   plugins: {
+//     tailwindcss: {
+//       corePlugins: {
+//         preflight: false,
+//       },
+//     },
+//     autoprefixer: {},
+//   },
+// };

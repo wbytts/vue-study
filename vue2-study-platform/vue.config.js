@@ -6,6 +6,38 @@ const path = require('path');
 module.exports = {
   lintOnSave: false,
 
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [require('tailwindcss'), require('autoprefixer')]
+      }
+    }
+  },
+
+  configureWebpack: config => {
+    // 配置外部依赖的库
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.Quill': 'quill/dist/quill.js',
+        Quill: 'quill/dist/quill.js',
+      }),
+    );
+
+    // 配置webpack 压缩
+    config.plugins.push(
+      new CompressionWebpackPlugin({
+        test: /\.js$|\.html$|\.css$/,
+        // 超过4kb压缩
+        threshold: 4096,
+      }),
+    );
+  },
+
+  transpileDependencies: ['vuetify'],
+
+  // 开发服务器配置
   devServer: {
     host: '0.0.0.0',
     port: 9901,
@@ -17,38 +49,4 @@ module.exports = {
       },
     },
   },
-
-  configureWebpack: config => {
-    config.plugins.push(
-      new webpack.ProvidePlugin({
-        'window.Quill': 'quill/dist/quill.js',
-        Quill: 'quill/dist/quill.js',
-      }),
-    );
-
-    // config.module
-    //   .rule('js')
-    //   .test(/\.jsx?$/)
-    //   // .use('babel-loader')
-    //   // .loader('babel-loader')
-    //   .exclude.add(path.resolve(/node_modules(?!\/quill-image-drop-module|quill-image-resize-module)/))
-    //   .exclude.add(
-    //     path.resolve('node_modules/_quill-image-resize-module@3.0.0@quill-image-resize-module/image-resize.min.js'),
-    //   )
-    //   .end();
-    if (isProd) {
-      // 配置webpack 压缩
-      config.plugins.push(
-        new CompressionWebpackPlugin({
-          test: /\.js$|\.html$|\.css$/,
-          // 超过4kb压缩
-          threshold: 4096,
-        }),
-      );
-      // 去除moment里用不到的语言包
-      // config.plugin('ignore').use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)); // 好像不对
-    }
-  },
-
-  transpileDependencies: ['vuetify'],
 };

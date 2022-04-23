@@ -5,6 +5,8 @@ import { createRouter } from './router';
 import { createStore } from './store';
 import vuetify from './plugins/vuetify';
 import '@/style/common.scss';
+import '@/style/tailwind.css';
+// import "tailwindcss/tailwind.css";
 
 // 去除Vue使用生产环境包文件的提示
 Vue.config.productionTip = false;
