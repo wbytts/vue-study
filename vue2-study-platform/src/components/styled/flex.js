@@ -1,10 +1,13 @@
 ﻿// Flex.js
 import styled from 'vue-styled-components';
 
-const FlexCenterDiv = styled.div`
+const FlexCenter = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
-export { FlexCenterDiv };
+
+export default {
+  'sdc-flex-center': FlexCenter
+};
