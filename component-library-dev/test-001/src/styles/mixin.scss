@@ -1,0 +1,21 @@
+﻿// bem
+
+$namespace: 'by';
+$state-prefix: 'is-';
+
+@mixin b($block) {
+  $B: $namesapce + '-'+ $block !global;
+  .#{$B} {
+    @content;
+  }
+}
+
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+

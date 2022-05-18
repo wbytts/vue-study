@@ -15,16 +15,13 @@ export default {
     onContextmenu(event) {
       this.$contextmenu({
         items: [
-          { label: '选项1' },
-          { label: '选项2' },
-          {
-            label: '选项3',
-            children: [{ label: '子菜单1' }, { label: '子菜单2' }],
-          },
-          { label: '选项4' },
-          { label: '选项5' },
-          { label: '选项6' },
-          { label: '选项7' },
+          { label: '分配' },
+          { label: '下发' },
+          { label: '出库确认' },
+          { label: '分配撤销' },
+          { label: '下发撤销' },
+          { label: '拣货波次撤销' },
+          { label: '拣货完成撤销' },
         ],
         event,
         //x: event.clientX,
