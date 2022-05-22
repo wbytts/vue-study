@@ -14,7 +14,6 @@ import Heading from '../components/Heading.jsx'
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 
 

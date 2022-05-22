@@ -18,6 +18,7 @@ import loadMoment from './moment';
 import loadDayjs from './dayjs';
 import loadD3 from './d3';
 import loadVueJsonViewer from './vue-json-viewer.js';
+import loadCompositionApi from './composition-api.js'
 
 export const pluginCore = {
   install(Vue, options) {
@@ -41,5 +42,6 @@ export const pluginCore = {
     loadVueEcharts(Vue);
     loadD3(Vue);
     loadVueJsonViewer(Vue);
+    loadCompositionApi(Vue)
   },
 };

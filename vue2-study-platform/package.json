@@ -43,6 +43,7 @@
     "echarts": "^5.3.2",
     "element-ui": "^2.15.6",
     "html2canvas": "^1.0.0-rc.7",
+    "immer": "^9.0.14",
     "jquery": "^3.6.0",
     "js-md5": "^0.7.3",
     "jspdf": "^2.3.1",
