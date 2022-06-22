@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.0/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <zu-jian></zu-jian>
+      <zu-jian></zu-jian>
+      <zu-jian></zu-jian>
+    </div>
+
+    <script>
+
+      Vue.component('zu-jian', {
+        template: `
+          <div>
+            <input v-model="msg"/>
+            <h1>{{msg}}</h1>
+          </div>
+        `,
+        data() {
+          console.log('function里的this', this)
+          return {
+            msg: '啦啦啦'
+          }
+        }
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+    </script>
+  </body>
+</html>

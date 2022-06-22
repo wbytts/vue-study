@@ -5,13 +5,14 @@ const path = require('path');
 
 module.exports = {
   lintOnSave: false,
+  // runtimeCompiler: true,
 
   css: {
     loaderOptions: {
       postcss: {
-        plugins: [require('tailwindcss'), require('autoprefixer')]
-      }
-    }
+        plugins: [require('tailwindcss'), require('autoprefixer')],
+      },
+    },
   },
 
   configureWebpack: config => {

@@ -13,7 +13,7 @@ import loadLodash from './lodash';
 import loadRamda from './ramda';
 import loadEchartsAll from './echarts-all';
 import loadEchartsUse from './echarts-use';
-import loadVueEcharts from './vue-echarts';
+// import loadVueEcharts from './vue-echarts';
 import loadMoment from './moment';
 import loadDayjs from './dayjs';
 import loadD3 from './d3';
@@ -39,7 +39,7 @@ export const pluginCore = {
     // loadVuera(Vue);
     loadEchartsAll(Vue); // 加载 echarts，全量引入
     // loadEchartsUse(Vue); // 加载 echarts，按需引入
-    loadVueEcharts(Vue);
+    // loadVueEcharts(Vue);
     loadD3(Vue);
     loadVueJsonViewer(Vue);
     loadCompositionApi(Vue)

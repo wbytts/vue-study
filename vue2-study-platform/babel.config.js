@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
     },
   ]);
 
-  plugins.push('@babel/plugin-transform-react-jsx');
+  // plugins.push('@babel/plugin-transform-react-jsx');
 }
 
 // npm install babel-plugin-component -D
