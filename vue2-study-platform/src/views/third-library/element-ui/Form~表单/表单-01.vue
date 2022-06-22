@@ -18,7 +18,7 @@
        -->
       <el-form-item label="用户名" prop="username">
         <!--
-          默认会撑开，但如果表单是inline的，则不会
+          默认会撑开一行，但如果表单是inline的，则不会
           原因是 el-form-item 不会撑开
          -->
         <el-input v-model="formData.username"></el-input>

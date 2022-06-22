@@ -5,13 +5,14 @@ const path = require('path');
 
 module.exports = {
   lintOnSave: false,
+  // runtimeCompiler: true,
 
   css: {
     loaderOptions: {
       postcss: {
-        plugins: [require('tailwindcss'), require('autoprefixer')]
-      }
-    }
+        plugins: [require('tailwindcss'), require('autoprefixer')],
+      },
+    },
   },
 
   configureWebpack: config => {
@@ -43,9 +44,9 @@ module.exports = {
     port: 9901,
     // open: 'msedge', // 使用指定的浏览器打开
     proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:5000',
-        pathRewrite: { '^/api': '' },
+      '/json': {
+        target: 'http://127.0.0.1:33300',
+        pathRewrite: { '^/json': '' },
       },
     },
   },

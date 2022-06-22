@@ -187,7 +187,7 @@ export default {
     position: fixed;
     width: 350px;
     top: 10px;
-    right: 10px;
+    right: 80px;
     border: 1px solid #ccc;
     background-color: #eee;
     z-index: 999;

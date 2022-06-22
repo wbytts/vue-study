@@ -6,9 +6,8 @@
 
 <script setup>
 import useMouse from '../utils/ues/mouse';
+
 const { x, y, color } = useMouse();
-
-
 
 </script>
 
@@ -18,3 +17,7 @@ h1 {
   color: v-bind(color)
 }
 </style>
+
+
+
+

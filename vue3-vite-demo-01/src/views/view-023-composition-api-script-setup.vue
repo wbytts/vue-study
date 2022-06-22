@@ -18,19 +18,24 @@
 
 <script setup>
 import { computed } from 'vue';
+
 let title = $ref('');
 let todos = $ref([{ title: '学习', done: false }]);
+
 let addTodo = () => {
   todos.push({ title: title, done: false });
   title = '';
 };
 let clear = () => (todos = todos.filter(v => !v.done));
+
 let active = computed(() => todos.filter(v => !v.done).length);
 let all = computed(() => todos.length);
+
 let allDone = computed({
   get: () => active === 0,
   set: val => todos.forEach(todo => (todo.done = val)),
 });
+
 </script>
 
 <style lang="scss" scoped>
