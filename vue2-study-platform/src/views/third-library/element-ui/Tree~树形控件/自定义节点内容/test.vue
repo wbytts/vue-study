@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-tree :data="treeList" :props="treeProps">
+    <el-tree :data="treeList" :props="{children: 'children',label: 'menuName'}">
       <template #default=" { node, data }">
         <div>
           <template v-if="node.childNodes.length != 0">
@@ -19,18 +19,13 @@
 </template>
 
 <script>
-export const name = 'ElementUI#Tree';
+export const name = 'ElementUI# el-tree# 自定义节点内容';
 import menuData from './data.js';
 
 export default {
   data() {
     return {
       treeList: [...menuData],
-      opreateId: 0,
-      treeProps: {
-        children: 'children',
-        label: 'menuName',
-      },
     };
   },
   methods: {},
