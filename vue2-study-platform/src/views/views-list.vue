@@ -27,7 +27,9 @@
             :key="com.id"
             :class="{ listActive: isActiveItem(com) }"
             @click="changeCurrentComponent(com)"
-          >{{ componentMap[com].name ? componentMap[com].name : com }}</li>
+          >
+            {{ componentMap[com].name ? componentMap[com].name : com }}
+          </li>
         </ul>
       </div>
     </transition>
@@ -250,10 +252,10 @@ export default {
       transform: scale(0);
     }
     50% {
-      transform: scale(1.2); // rotate(360deg)
+      transform: scale(1.2); // rotate(360deg);
     }
     100% {
-      transform: scale(1); // rotate(-360deg)
+      transform: scale(1); // rotate(-360deg);
     }
   }
 }
