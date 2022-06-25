@@ -3,7 +3,7 @@
     <div>{{checkedRow}}</div>
     <el-table :data="tableData" style="width: 100%" strip border>
       <el-table-column width="80">
-        <template #default="{row}">
+        <template #default="{ row }">
           <el-badge
             :value="checkedRow.indexOf(row.id) + 1"
             :hidden="checkedRow.indexOf(row.id) + 1 == 0"
