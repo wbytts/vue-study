@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog :visible.sync="visible">hello</el-dialog>
+    <el-dialog :visible="visible" :title="title" @close="$emit('update:visible', false)"></el-dialog>
   </div>
 </template>
 
@@ -8,12 +8,14 @@
 export default {
   props: {
     visible: {
-      type: Boolean
-    }
-  }
-}
+      type: Boolean,
+    },
+    title: {
+      type: String,
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>

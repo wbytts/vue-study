@@ -1,0 +1,3 @@
+[submodule "git-modules/houdunren-vue"]
+	path = git-modules/houdunren-vue
+	url = https://github.com/houdunwang/vue.git
