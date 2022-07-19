@@ -18,7 +18,8 @@ import loadMoment from './moment';
 import loadDayjs from './dayjs';
 import loadD3 from './d3';
 import loadVueJsonViewer from './vue-json-viewer.js';
-import loadCompositionApi from './composition-api.js'
+import loadCompositionApi from './composition-api.js';
+import loadiView from './iview.js';
 
 export const pluginCore = {
   install(Vue, options) {
@@ -28,9 +29,10 @@ export const pluginCore = {
     loadDayjs(Vue);
     loadRamda(Vue);
     loadLodash(Vue);
-    loadElementUi(Vue); // 加载 Element UI
-    loadAntDesignVue(Vue); // 加载 Ant Design Vue
-    loadVant(Vue); // 加载 Vant
+    loadElementUi(Vue); // 加载 Element UI 组件库
+    loadAntDesignVue(Vue); // 加载 Ant Design Vue 组件库
+    loadVant(Vue); // 加载 Vant 组件库
+    loadiView(Vue); // 加载 iView 组件库
     loadZjTable(Vue); // 加载 zj-table
     loadVueContextMenu(Vue); // 加载 vue-context-menu
     loadD2(Vue); // 加载 d2 相关
@@ -42,6 +44,6 @@ export const pluginCore = {
     // loadVueEcharts(Vue);
     loadD3(Vue);
     loadVueJsonViewer(Vue);
-    loadCompositionApi(Vue)
+    loadCompositionApi(Vue);
   },
 };
